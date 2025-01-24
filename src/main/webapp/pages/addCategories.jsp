@@ -169,7 +169,7 @@
 <div class="add-category-container">
   <form id="categoryForm" method="post" action="/E_Commerce_supun_war_exploded/addCategories" enctype="multipart/form-data">
     <div class="category-image-container">
-      <img src="/api/placeholder/150/150" alt="Category Image" class="category-image" id="categoryImagePreview">
+      <img src="" alt="Category Image" class="category-image" id="categoryImagePreview">
       <div class="image-upload-overlay">
         <input type="file" id="categoryImage" name="categoryImage" accept="image/*" class="d-none">
         <label for="categoryImage" class="m-0">
@@ -202,6 +202,7 @@
   </form>
 </div>
 
+<h2 class="text-center">Manage Categories</h2>
 <table class="category-table table table-striped">
   <thead>
   <tr>
@@ -215,15 +216,19 @@
   <tbody id="categoryTableBody">
   <%
     List<CateDTO> categoryList = (List<CateDTO>) request.getAttribute("categoryList");
-    if (categoryList != null) {
+
+    if (categoryList != null && !categoryList.isEmpty()) {
       for (CateDTO category : categoryList) {
+
   %>
   <tr>
     <td>
       <%
-        String base64Image = Base64.getEncoder().encodeToString(category.getImage());
+        String base64Image = category.getImage() != null
+                ? Base64.getEncoder().encodeToString(category.getImage())
+                : "";
       %>
-      <img src="data:image/jpeg;base64,<%= base64Image %>" alt="Category Image" class="category-image" style="width: 50px; height: 50px;">
+      <img src="data:image/jpeg;base64,<%= base64Image %>" alt="Category Image" class="category-image" style="width:100px;height:100px;">
     </td>
     <td><%= category.getName() %></td>
     <td><%= category.getDescription() %></td>
@@ -245,6 +250,7 @@
   %>
   </tbody>
 </table>
+
 
 <script>
   document.getElementById('categoryImage').addEventListener('change', function(event) {

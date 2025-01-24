@@ -81,6 +81,7 @@
     <symbol xmlns="http://www.w3.org/2000/svg" id="pet" viewBox="0 0 14 14"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M1.5 9.5c.552 0 1-.672 1-1.5s-.448-1.5-1-1.5s-1 .672-1 1.5s.448 1.5 1 1.5m3-4.5c.552 0 1-.672 1-1.5S5.052 2 4.5 2s-1 .672-1 1.5s.448 1.5 1 1.5m5 0c.552 0 1-.672 1-1.5S10.052 2 9.5 2s-1 .672-1 1.5s.448 1.5 1 1.5m3 4.5c.552 0 1-.672 1-1.5s-.448-1.5-1-1.5s-1 .672-1 1.5s.448 1.5 1 1.5M10 10c0 1.38-1.62 2-3 2s-3-.62-3-2s1-3.5 3-3.5s3 2.12 3 3.5"/></symbol>
   </defs>
 </svg>
+
 <div class="preloader-wrapper">
   <div class="preloader">
   </div>
@@ -140,117 +141,30 @@
 
     <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
       <li class="nav-item border-dashed active">
-        <a href="pages/fruits&Vegitables.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+        <a href="../pages/fruits&Vegitables.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
           <svg width="24" height="24" viewBox="0 0 24 24"><use href="#fruits"></use></svg>
           <span>Fruits and vegetables</span>
         </a>
       </li>
       <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+        <a href="../pages/dairyAndEggs.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
           <svg width="24" height="24" viewBox="0 0 24 24"><use href="#dairy"></use></svg>
           <span>Dairy and Eggs</span>
         </a>
       </li>
       <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+        <a href="../pages/meatAndPoultry.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
           <svg width="24" height="24" viewBox="0 0 24 24"><use href="#meat"></use></svg>
           <span>Meat and Poultry</span>
         </a>
       </li>
       <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+        <a href="../pages/seafood.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
           <svg width="24" height="24" viewBox="0 0 24 24"><use href="#seafood"></use></svg>
           <span>Seafood</span>
         </a>
       </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#bakery"></use></svg>
-          <span>Bakery and Bread</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#canned"></use></svg>
-          <span>Canned Goods</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#frozen"></use></svg>
-          <span>Frozen Foods</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#pasta"></use></svg>
-          <span>Pasta and Rice</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#breakfast"></use></svg>
-          <span>Breakfast Foods</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#snacks"></use></svg>
-          <span>Snacks and Chips</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <button class="btn btn-toggle dropdown-toggle position-relative w-100 d-flex justify-content-between align-items-center text-dark p-2" data-bs-toggle="collapse" data-bs-target="#beverages-collapse" aria-expanded="false">
-          <div class="d-flex gap-3">
-            <svg width="24" height="24" viewBox="0 0 24 24"><use href="#beverages"></use></svg>
-            <span>Beverages</span>
-          </div>
-        </button>
-        <div class="collapse" id="beverages-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal ps-5 pb-1">
-            <li class="border-bottom py-2"><a href="index.html" class="dropdown-item">Water</a></li>
-            <li class="border-bottom py-2"><a href="index.html" class="dropdown-item">Juice</a></li>
-            <li class="border-bottom py-2"><a href="index.html" class="dropdown-item">Soda</a></li>
-            <li class="border-bottom py-2"><a href="index.html" class="dropdown-item">Tea</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#spices"></use></svg>
-          <span>Spices and Seasonings</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#baby"></use></svg>
-          <span>Baby Food and Formula</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#health"></use></svg>
-          <span>Health and Wellness</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#household"></use></svg>
-          <span>Household Supplies</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#personal"></use></svg>
-          <span>Personal Care</span>
-        </a>
-      </li>
-      <li class="nav-item border-dashed">
-        <a href="index.html" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
-          <svg width="24" height="24" viewBox="0 0 24 24"><use href="#pet"></use></svg>
-          <span>Pet Food and Supplies</span>
-        </a>
-      </li>
+
     </ul>
 
   </div>
@@ -297,15 +211,15 @@
       <div class="col-lg-4">
         <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
           <li class="nav-item active">
-            <a href="../index.jsp" class="nav-link">Home</a>
+            <a href="home.jsp" class="nav-link">Home</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
             <ul class="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="pages">
-              <li><a href="pages/aboutUs.jsp" class="dropdown-item">About Us </a></li>
-              <li><a href="pages/cart.jsp" class="dropdown-item">Cart </a></li>
+              <li><a href="aboutUs.jsp" class="dropdown-item">About Us </a></li>
+              <li><a href="cart.jsp" class="dropdown-item">Cart </a></li>
               <li><a href="index.html" class="dropdown-item">Thank You </a></li>
-             <li><a href="../pages/account.jsp" class="dropdown-item">My Account </a></li>
+              <li><a href="../pages/account.jsp" class="dropdown-item">My Account </a></li>
             </ul>
           </li>
         </ul>
@@ -314,17 +228,12 @@
       <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
         <ul class="d-flex justify-content-end list-unstyled m-0">
           <li>
-            <a href="#" class="p-2 mx-1">
+            <a href="../pages/account.jsp" class="p-2 mx-1">
               <svg width="24" height="24"><use href="#user"></use></svg>
             </a>
           </li>
           <li>
-            <a href="#" class="p-2 mx-1">
-              <svg width="24" height="24"><use href="#wishlist"></use></svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+            <a href="../pages/cart.jsp" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
               <svg width="24" height="24"><use href="#shopping-bag"></use></svg>
             </a>
           </li>

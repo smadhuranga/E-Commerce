@@ -157,7 +157,7 @@
     </div>
 
     <div class="dashboard-buttons">
-      <a href="../pages/addCategories.jsp" class="dashboard-btn category-btn">
+      <a href="/E_Commerce_supun_war_exploded/addCategories" class="dashboard-btn category-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
           <path d="M22 19a2 2 0 0 1-2 2h-16a2 2 0 0 1-2-2v-14a2 2 0 0 1 2-2h6l2 3h8a2 2 0 0 1 2 2z"></path>
         </svg>

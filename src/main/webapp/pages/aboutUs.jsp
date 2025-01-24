@@ -82,6 +82,94 @@
     </defs>
 </svg>
 
+<div class="preloader-wrapper">
+    <div class="preloader">
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasCart">
+    <div class="offcanvas-header justify-content-center">
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="order-md-last">
+            <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Your cart</span>
+                <span class="badge bg-primary rounded-pill">3</span>
+            </h4>
+            <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Growers cider</h6>
+                        <small class="text-body-secondary">Brief description</small>
+                    </div>
+                    <span class="text-body-secondary">$12</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Fresh grapes</h6>
+                        <small class="text-body-secondary">Brief description</small>
+                    </div>
+                    <span class="text-body-secondary">$8</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                    <div>
+                        <h6 class="my-0">Heinz tomato ketchup</h6>
+                        <small class="text-body-secondary">Brief description</small>
+                    </div>
+                    <span class="text-body-secondary">$5</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong>$20</strong>
+                </li>
+            </ul>
+
+            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar">
+
+    <div class="offcanvas-header justify-content-between">
+        <h4 class="fw-normal text-uppercase fs-6">Menu</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+
+        <ul class="navbar-nav justify-content-end menu-list list-unstyled d-flex gap-md-3 mb-0">
+            <li class="nav-item border-dashed active">
+                <a href="../pages/fruits&Vegitables.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><use href="#fruits"></use></svg>
+                    <span>Fruits and vegetables</span>
+                </a>
+            </li>
+            <li class="nav-item border-dashed">
+                <a href="../pages/dairyAndEggs.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><use href="#dairy"></use></svg>
+                    <span>Dairy and Eggs</span>
+                </a>
+            </li>
+            <li class="nav-item border-dashed">
+                <a href="../pages/meatAndPoultry.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><use href="#meat"></use></svg>
+                    <span>Meat and Poultry</span>
+                </a>
+            </li>
+            <li class="nav-item border-dashed">
+                <a href="../pages/seafood.jsp" class="nav-link d-flex align-items-center gap-3 text-dark p-2">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><use href="#seafood"></use></svg>
+                    <span>Seafood</span>
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
 
 <header>
     <div class="container-fluid">
@@ -123,15 +211,15 @@
             <div class="col-lg-4">
                 <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
                     <li class="nav-item active">
-                        <a href="../index.jsp" class="nav-link">Home</a>
+                        <a href="home.jsp" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                         <ul class="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="pages">
-                            <li><a href="../pages/aboutUs.jsp" class="dropdown-item">About Us </a></li>
-                            <li><a href="../pages/cart.jsp" class="dropdown-item">Cart </a></li>
+                            <li><a href="aboutUs.jsp" class="dropdown-item">About Us </a></li>
+                            <li><a href="cart.jsp" class="dropdown-item">Cart </a></li>
                             <li><a href="index.html" class="dropdown-item">Thank You </a></li>
-                           <li><a href="../pages/account.jsp" class="dropdown-item">My Account </a></li>
+                            <li><a href="../pages/account.jsp" class="dropdown-item">My Account </a></li>
                         </ul>
                     </li>
                 </ul>
@@ -140,17 +228,12 @@
             <div class="col-sm-8 col-lg-2 d-flex gap-5 align-items-center justify-content-center justify-content-sm-end">
                 <ul class="d-flex justify-content-end list-unstyled m-0">
                     <li>
-                        <a href="#" class="p-2 mx-1">
+                        <a href="../pages/account.jsp" class="p-2 mx-1">
                             <svg width="24" height="24"><use href="#user"></use></svg>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="p-2 mx-1">
-                            <svg width="24" height="24"><use href="#wishlist"></use></svg>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                        <a href="../pages/cart.jsp" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                             <svg width="24" height="24"><use href="#shopping-bag"></use></svg>
                         </a>
                     </li>
@@ -160,8 +243,6 @@
         </div>
     </div>
 </header>
-
-
 
 
 
