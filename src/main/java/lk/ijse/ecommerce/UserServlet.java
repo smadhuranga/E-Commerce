@@ -139,7 +139,7 @@ public class UserServlet extends HttpServlet {
                 String username = rs.getString("username");
                 HttpSession session = request.getSession();
                 session.setAttribute("user", username);
-                response.sendRedirect("pages/home.jsp");
+                response.sendRedirect("pages/dashBoard.jsp");
             } else {
                 // Invalid credentials
                 request.setAttribute("error", "Invalid email or password.");

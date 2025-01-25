@@ -164,7 +164,7 @@
         Manage Categories
       </a>
 
-      <a href="../pages/addProduct.jsp" class="dashboard-btn add-item-btn">
+      <a href="/E_Commerce_supun_war_exploded/addProduct" class="dashboard-btn add-item-btn">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="12" y1="8" x2="12" y2="16"></line>

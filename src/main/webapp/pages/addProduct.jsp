@@ -121,10 +121,17 @@
                 <label for="categoryID" class="form-label">Category</label>
                 <select class="form-control" id="categoryID" name="categoryID" required>
                     <option value="" disabled selected>Select a category</option>
-                    <option value="1">Category 1</option>
-                    <option value="2">Category 2</option>
-                    <option value="3">Category 3</option>
-                    <!-- Add more categories as needed -->
+                    <%
+                        // Retrieve the category list from the request attribute
+                        List<String> categoryList = (List<String>) request.getAttribute("categoryList");
+                        if (categoryList != null) {
+                            for (String category : categoryList) {
+                    %>
+                    <option value="<%= category %>"><%= category %></option>
+                    <%
+                            }
+                        }
+                    %>
                 </select>
             </div>
 
@@ -181,6 +188,16 @@
 </div>
 
 <script>
+    document.getElementById('productImage').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('productImagePreview').src = e.target.result;
+            }
+            reader.readAsDataURL(file);
+        }
+    });
 
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

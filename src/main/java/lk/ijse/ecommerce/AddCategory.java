@@ -27,14 +27,6 @@ public class AddCategory extends HttpServlet {
     @Resource(name = "java:comp/env/jdbc/pool")
     private DataSource dataSource;
 
-//    @Override
-//    public void init() throws ServletException {
-//        // Initialize your DataSource (use your application server's configuration)
-//        dataSource = (DataSource) getServletContext().getAttribute("dataSource");
-//        if (dataSource == null) {
-//            throw new ServletException("DataSource not configured.");
-//        }
-//    }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
