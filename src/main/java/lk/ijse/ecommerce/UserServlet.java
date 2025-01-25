@@ -137,9 +137,16 @@ public class UserServlet extends HttpServlet {
             if (rs.next()) {
                 // User found, set session and redirect to welcome page
                 String username = rs.getString("username");
-                HttpSession session = request.getSession();
-                session.setAttribute("user", username);
-                response.sendRedirect("pages/dashBoard.jsp");
+                if (rs.getString("role").equals("Admin")) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", username);
+                    response.sendRedirect("pages/dashBoard.jsp");
+                }else if ( rs.getString("role").equals("Customer")) {
+                    HttpSession session = request.getSession();
+                    session.setAttribute("user", username);
+                    response.sendRedirect("pages/home.jsp");
+                }
+
             } else {
                 // Invalid credentials
                 request.setAttribute("error", "Invalid email or password.");

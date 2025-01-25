@@ -134,29 +134,29 @@ public class AddProduct extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         getCategory(req, resp);
 
-            List<ProductsDTO> productList = new ArrayList<>();
+        List<ProductsDTO> productList = new ArrayList<>();
 
-            try (Connection connection = dataSource.getConnection()) {
-                String sql = "SELECT * FROM products";
-                try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
-                    while (rs.next()) {
-                        int itemCode = rs.getInt("itemCode");
-                        String name = rs.getString("name");
-                        double unitPrice = rs.getDouble("unitPrice");
-                        String description = rs.getString("description");
-                        int quantity = rs.getInt("qtyOnHand");
-                        byte[] image = rs.getBytes("image");
-                        int categoryID = rs.getInt("categoryID");
+        try (Connection connection = dataSource.getConnection()) {
+            String sql = "SELECT * FROM products";
+            try (PreparedStatement ps = connection.prepareStatement(sql); ResultSet rs = ps.executeQuery()) {
+                while (rs.next()) {
+                    int itemCode = rs.getInt("itemCode");
+                    String name = rs.getString("name");
+                    double unitPrice = rs.getDouble("unitPrice");
+                    String description = rs.getString("description");
+                    int quantity = rs.getInt("qtyOnHand");
+                    byte[] image = rs.getBytes("image");
+                    int categoryID = rs.getInt("categoryID");
 
-                        productList.add(new ProductsDTO(itemCode, name, unitPrice, description, quantity, image, categoryID));
-                    }
+                    productList.add(new ProductsDTO(itemCode, name, unitPrice, description, quantity, image, categoryID));
                 }
-            } catch (SQLException e) {
-                throw new ServletException("Error retrieving products from database", e);
             }
+        } catch (SQLException e) {
+            throw new ServletException("Error retrieving products from database", e);
+        }
 
-            // Set the product list as a request attribute for the JSP
-            req.setAttribute("productList", productList);
+        // Set the product list as a request attribute for the JSP
+        req.setAttribute("productList", productList);
 
         req.getRequestDispatcher("pages/addProduct.jsp").forward(req, resp);
 

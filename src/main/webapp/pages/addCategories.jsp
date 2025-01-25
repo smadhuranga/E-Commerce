@@ -2,10 +2,9 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Base64" %>
 <%@ page import="lk.ijse.ecommerce.dto.CateDTO" %>
-<!-- Adjust the package name accordingly -->
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,13 +35,8 @@
     }
 
     @keyframes background-animation {
-      from {
-        background-position: 0 0;
-      }
-
-      to {
-        background-position: 100% 0;
-      }
+      from { background-position: 0 0; }
+      to { background-position: 100% 0; }
     }
 
     .add-category-container {
@@ -103,16 +97,14 @@
       text-align: left;
     }
 
-    .form-control,
-    .form-select {
+    .form-control, .form-select {
       border-radius: 10px;
       padding: 12px 15px;
       border-color: #e0e0e0;
       transition: all 0.3s ease;
     }
 
-    .form-control:focus,
-    .form-select:focus {
+    .form-control:focus, .form-select:focus {
       border-color: var(--primary-color);
       box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
     }
@@ -141,8 +133,7 @@
       box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     }
 
-    .category-table th,
-    .category-table td {
+    .category-table th, .category-table td {
       padding: 15px;
       text-align: center;
     }
@@ -156,6 +147,10 @@
       background-color: #f2f2f2;
     }
 
+    .modal-backdrop {
+      backdrop-filter: blur(5px);
+    }
+
     @media (max-width: 576px) {
       .add-category-container {
         padding: 20px;
@@ -163,7 +158,6 @@
     }
   </style>
 </head>
-
 <body>
 
 <div class="add-category-container">
@@ -203,6 +197,7 @@
 </div>
 
 <h2 class="text-center">Manage Categories</h2>
+
 <table class="category-table table table-striped">
   <thead>
   <tr>
@@ -216,10 +211,8 @@
   <tbody id="categoryTableBody">
   <%
     List<CateDTO> categoryList = (List<CateDTO>) request.getAttribute("categoryList");
-
     if (categoryList != null && !categoryList.isEmpty()) {
       for (CateDTO category : categoryList) {
-
   %>
   <tr>
     <td>
@@ -234,8 +227,8 @@
     <td><%= category.getDescription() %></td>
     <td><%= category.getStatus() %></td>
     <td>
-      <a href="editCategory?id=<%= category.getId() %>" class="btn btn-warning btn-custom">Edit</a>
-      <a href="deleteCategory?id=<%= category.getId() %>" class="btn btn-danger btn-custom">Delete</a>
+      <button class="btn btn-warning btn-custom" onclick="openEditModal(<%= category.getId() %>, '<%= category.getName() %>', '<%= category.getDescription() %>', '<%= category.getStatus() %>')">Edit</button>
+      <button class="btn btn-danger btn-custom" onclick="openDeleteConfirmation(<%= category.getId() %>)">Delete</button>
     </td>
   </tr>
   <%
@@ -251,6 +244,57 @@
   </tbody>
 </table>
 
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editCategoryForm" method="post" action="/E_Commerce_supun_war_ex ploded/editCategory">
+          <input type="hidden" id="editCategoryId" name="id">
+          <div class="mb-3">
+            <label for="editCategoryName" class="form-label">Category Name</label>
+            <input type="text" class="form-control" id="editCategoryName" name="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="editDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="editDescription" name="description" rows="4" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="editStatus" class="form-label">Status</label>
+            <select class="form-select" id="editStatus" name="status" required>
+              <option value="Active">Active</option>
+              <option value="Inactive">Inactive</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Update Category</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteConfirmationModalLabel">Delete Confirmation</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to delete this category?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteButton">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
   document.getElementById('categoryImage').addEventListener('change', function(event) {
@@ -263,8 +307,25 @@
       reader.readAsDataURL(file);
     }
   });
+
+  function openEditModal(id, name, description, status) {
+    document.getElementById('editCategoryId').value = id;
+    document.getElementById('editCategoryName').value = name;
+    document.getElementById('editDescription').value = description;
+    document.getElementById('editStatus').value = status;
+    var editModal = new bootstrap.Modal(document.getElementById('editModal'));
+    editModal.show();
+  }
+
+  function openDeleteConfirmation(id) {
+    document.getElementById('confirmDeleteButton').onclick = function() {
+      window.location.href = 'deleteCategory?id=' + id;
+    }
+    var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
+    deleteModal.show();
+  }
 </script>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>

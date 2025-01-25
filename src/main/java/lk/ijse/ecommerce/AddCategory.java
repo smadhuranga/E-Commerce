@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
-@WebServlet(name = "AddCategory" , value = "/addCategories")
+@WebServlet(name = "AddCategory", value = "/addCategories")
 @MultipartConfig
 public class AddCategory extends HttpServlet {
     @Resource(name = "java:comp/env/jdbc/pool")
@@ -50,7 +50,6 @@ public class AddCategory extends HttpServlet {
         }
 
 
-
         // Set the category list as a request attribute for JSP
         request.setAttribute("categoryList", categoryList);
 
@@ -60,14 +59,12 @@ public class AddCategory extends HttpServlet {
     }
 
 
-
-
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         String status = req.getParameter("status");
-        System.out.println(name+description+status);
+        System.out.println(name + description + status);
         Part imagePart = req.getPart("categoryImage");
         InputStream imageInputStream = null;
 
