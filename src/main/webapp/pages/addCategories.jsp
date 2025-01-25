@@ -162,6 +162,7 @@
 
 <div class="add-category-container">
   <form id="categoryForm" method="post" action="/E_Commerce_supun_war_exploded/addCategories" enctype="multipart/form-data">
+    <input type="hidden" name="action" value="add-category">
     <div class="category-image-container">
       <img src="" alt="Category Image" class="category-image" id="categoryImagePreview">
       <div class="image-upload-overlay">
@@ -189,7 +190,7 @@
       <select class="form-select" id="status" name="status" required>
         <option value="">Select Status</option>
         <option value="Active">Active</option>
-        <option value="Inactive">Inactive</option>
+        <option value="Draft">Inactive</option>
       </select>
     </div>
     <button type="submit" class="btn btn-primary w-100">Add Category</button>

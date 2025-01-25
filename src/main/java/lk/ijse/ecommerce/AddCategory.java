@@ -105,8 +105,8 @@ public class AddCategory extends HttpServlet {
 
             int rowsAffected = statement.executeUpdate();
             if (rowsAffected > 0) {
-                req.setAttribute("message", "Category added successfully.");
-                req.getRequestDispatcher("/pages/addCategories.jsp").forward(req, resp);
+
+                resp.sendRedirect("addCategories");
 
             } else {
                 req.setAttribute("error", "Failed to add category.");
