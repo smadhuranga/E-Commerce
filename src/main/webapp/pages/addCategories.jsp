@@ -319,8 +319,30 @@
 
   function openDeleteConfirmation(id) {
     document.getElementById('confirmDeleteButton').onclick = function() {
-      window.location.href = 'deleteCategory?id=' + id;
-    }
+      window.location.href = 'addCategories?id=' + id;
+
+        if (id) {
+          const form = document.createElement('form');
+          form.method = 'post';
+          form.action = '/E_Commerce_supun_war_exploded/addCategories';
+
+          const actionInput = document.createElement('input');
+          actionInput.type = 'hidden';
+          actionInput.name = 'action';
+          actionInput.value = 'delete-category';
+          form.appendChild(actionInput);
+
+          const idInput = document.createElement('input');
+          idInput.type = 'hidden';
+          idInput.name = 'id';
+          idInput.value = id;
+          form.appendChild(idInput);
+
+          document.body.appendChild(form);
+          form.submit();
+        }
+
+      }
     var deleteModal = new bootstrap.Modal(document.getElementById('deleteConfirmationModal'));
     deleteModal.show();
   }
