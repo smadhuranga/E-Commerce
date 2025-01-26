@@ -161,4 +161,6 @@ public class AddProduct extends HttpServlet {
         req.getRequestDispatcher("pages/addProduct.jsp").forward(req, resp);
 
     }
+
+
 }

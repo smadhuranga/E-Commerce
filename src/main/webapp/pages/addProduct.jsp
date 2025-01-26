@@ -22,7 +22,7 @@
         .add-product-container {
             background: white;
             border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
             padding: 40px;
             max-width: 600px;
             margin: 50px auto;
@@ -76,9 +76,6 @@
         }
 
 
-
-
-
         body.modal-open {
             overflow: hidden;
         }
@@ -108,13 +105,15 @@
 <body>
 <div class="container">
     <div class="add-product-container">
-        <form id="productForm" action="/E_Commerce_supun_war_exploded/addProduct" method="post" enctype="multipart/form-data">
+        <form id="productForm" action="/E_Commerce_supun_war_exploded/addProduct" method="post"
+              enctype="multipart/form-data">
             <div class="product-image-container">
                 <img src="/api/placeholder/200/200" alt="Product Image" class="product-image" id="productImagePreview">
                 <div class="image-upload-overlay">
                     <input type="file" id="productImage" name="productImage" accept="image/*" class="d-none">
                     <label for="productImage" class="m-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M23 19a2 2 0 0 1-2 2h-18a2 2 0 0 1-2-2v-14a2 2 0 0 1 2-2h4l2 3h8l2-3h4a2 2 0 0 1 2 2z"></path>
                             <line x1="12" y1="11" x2="12" y2="17"></line>
                             <line x1="9" y1="14" x2="15" y2="14"></line>
@@ -127,23 +126,27 @@
 
             <div class="mb-3">
                 <label for="productName" class="form-label">Product Name</label>
-                <input type="text" class="form-control" id="productName" name="productName" placeholder="Enter product name" required>
+                <input type="text" class="form-control" id="productName" name="productName"
+                       placeholder="Enter product name" required>
             </div>
 
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="unitPrice" class="form-label">Unit Price</label>
-                    <input type="number" class="form-control" id="unitPrice" name="unitPrice" placeholder="0.00" step="0.01" min="0" required>
+                    <input type="number" class="form-control" id="unitPrice" name="unitPrice" placeholder="0.00"
+                           step="0.01" min="0" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="qtyOnHand" class="form-label">Quantity on Hand</label>
-                    <input type="number" class="form-control" id="qtyOnHand" name="qtyOnHand" placeholder="0" min="0" required>
+                    <input type="number" class="form-control" id="qtyOnHand" name="qtyOnHand" placeholder="0" min="0"
+                           required>
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter product description" required></textarea>
+                <textarea class="form-control" id="description" name="description" rows="4"
+                          placeholder="Enter product description" required></textarea>
             </div>
 
             <div class="mb-3">
@@ -152,11 +155,12 @@
                     <option value="" disabled selected>Select a category</option>
                     <%
                         // Retrieve the category list from the request attribute
-                        List<String> categoryList = (List<String>) request.getAttribute("categoryList");
+                        List<ProductsDTO> categoryList = (List<ProductsDTO>) request.getAttribute("productList");
                         if (categoryList != null) {
-                            for (String category : categoryList) {
+                            for (ProductsDTO category : categoryList) {
                     %>
-                    <option value="<%= category %>"><%= category %></option>
+                    <option value="<%= category %>"><%= category %>
+                    </option>
                     <%
                             }
                         }
@@ -189,15 +193,25 @@
                     for (ProductsDTO product : productList) {
             %>
             <tr>
-                <td><%= product.getItemCode() %></td>
-                <td><%= product.getName() %></td>
-                <td><%= product.getUnitPrice() %></td>
-                <td><%= product.getQuantity() %></td>
-                <td><%= product.getDescription() %></td>
-                <td><%= product.getCategoryID() %></td>
+                <td><%= product.getItemCode() %>
+                </td>
+                <td><%= product.getName() %>
+                </td>
+                <td><%= product.getUnitPrice() %>
+                </td>
+                <td><%= product.getQuantity() %>
+                </td>
+                <td><%= product.getDescription() %>
+                </td>
+                <td><%= product.getCategoryID() %>
+                </td>
                 <td>
-                    <button onclick="openEditModal('<%= product.getItemCode() %>', '<%= product.getName() %>', <%= product.getUnitPrice() %>, <%= product.getQuantity() %>, '<%= product.getDescription() %>', '<%= product.getCategoryID() %>')" class="btn btn-warning btn-custom">Edit</button>
-                    <button onclick="openDeleteModal('<%= product.getItemCode() %>', '<%= product.getName() %>')" class="btn btn-danger btn-custom">Delete</button>
+                    <button onclick="openEditModal('<%= product.getItemCode() %>', '<%= product.getName() %>', <%= product.getUnitPrice() %>, <%= product.getQuantity() %>, '<%= product.getDescription() %>', '<%= product.getCategoryID() %>')"
+                            class="btn btn-warning btn-custom">Edit
+                    </button>
+                    <button onclick="openDeleteModal('<%= product.getItemCode() %>', '<%= product.getName() %>')"
+                            class="btn btn-danger btn-custom">Delete
+                    </button>
                 </td>
             </tr>
             <%
@@ -234,7 +248,8 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Unit Price</label>
-                                <input type="number" class="form-control" id="editUnitPrice" name="unitPrice" step="0.01" required>
+                                <input type="number" class="form-control" id="editUnitPrice" name="unitPrice"
+                                       step="0.01" required>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Quantity</label>
@@ -244,7 +259,8 @@
 
                         <div class="mb-3">
                             <label class="form-label">Description</label>
-                            <textarea class="form-control" id="editDescription" name="description" rows="3" required></textarea>
+                            <textarea class="form-control" id="editDescription" name="description" rows="3"
+                                      required></textarea>
                         </div>
 
                         <div class="mb-3">
@@ -255,7 +271,8 @@
                                     if (categoryList2 != null) {
                                         for (String category : categoryList2) {
                                 %>
-                                <option value="<%= category %>"><%= category %></option>
+                                <option value="<%= category %>"><%= category %>
+                                </option>
                                 <%
                                         }
                                     }
@@ -294,11 +311,11 @@
 </div>
 
 <script>
-    document.getElementById('productImage').addEventListener('change', function(event) {
+    document.getElementById('productImage').addEventListener('change', function (event) {
         const file = event.target.files[0];
         if (file) {
             const reader = new FileReader();
-            reader.onload = function(e) {
+            reader.onload = function (e) {
                 document.getElementById('productImagePreview').src = e.target.result;
             }
             reader.readAsDataURL(file);
@@ -333,11 +350,12 @@
 
     function confirmDelete() {
         var itemCode = document.getElementById('deleteItemCode').value;
-        window.location.href = 'deleteProduct?id=' + itemCode;
+        window.location.href = 'addProduct?id=' + itemCode;
+
     }
 
     // Close modals when clicking outside
-    window.onclick = function(event) {
+    window.onclick = function (event) {
         var editModal = document.getElementById('editModal');
         var deleteModal = document.getElementById('deleteModal');
 
@@ -348,7 +366,6 @@
             deleteModal.style.display = 'none';
         }
     }
-
 
 
     // JavaScript to handle blur backdrop
@@ -397,6 +414,32 @@
         var backdrop = document.createElement('div');
         backdrop.classList.add('modal-backdrop');
         document.body.appendChild(backdrop);
+
+        document.getElementById('deleteModal').onclick = function () {
+            window.location.href = 'addProduct?id=' + itemCode;
+
+            if (id) {
+                const form = document.createElement('form');
+                form.method = 'post';
+                form.action = '/E_Commerce_supun_war_exploded/addProduct';
+
+                const actionInput = document.createElement('input');
+                actionInput.type = 'hidden';
+                actionInput.name = 'action';
+                actionInput.value = 'delete-category';
+                form.appendChild(actionInput);
+
+                const idInput = document.createElement('input');
+                idInput.type = 'hidden';
+                idInput.name = 'id';
+                idInput.value = id;
+                form.appendChild(idInput);
+
+                document.body.appendChild(form);
+                form.submit();
+            }
+
+        }
 
         // Show modal
         setTimeout(() => {
