@@ -155,7 +155,7 @@ public class AddProduct extends HttpServlet {
             throw new ServletException("Error retrieving products from database", e);
         }
 
-        // Set the product list as a request attribute for the JSP
+
         req.setAttribute("productList", productList);
 
         req.getRequestDispatcher("pages/addProduct.jsp").forward(req, resp);
